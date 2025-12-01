@@ -21,4 +21,6 @@ public interface UserRepository {
     List<User> findAll();
 
     void deleteById(String id);
+
+    
 }

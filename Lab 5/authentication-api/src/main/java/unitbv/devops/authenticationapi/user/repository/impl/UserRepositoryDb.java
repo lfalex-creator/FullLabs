@@ -3,6 +3,7 @@ package unitbv.devops.authenticationapi.user.repository.impl;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Repository;
+
 import unitbv.devops.authenticationapi.user.entity.User;
 import unitbv.devops.authenticationapi.user.repository.UserJpaRepository;
 import unitbv.devops.authenticationapi.user.repository.UserRepository;
@@ -56,4 +57,5 @@ public class UserRepositoryDb implements UserRepository {
     public void deleteById(String id) {
         jpaRepo.deleteById(id);
     }
+
 }

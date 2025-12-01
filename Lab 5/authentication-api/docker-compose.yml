@@ -13,5 +13,24 @@ services:
     volumes:
       - pgdata:/var/lib/postgresql/data
 
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: auth-app
+    restart: on-failure
+    depends_on:
+      - postgres
+    ports:
+      - "8081:8081"
+    environment:
+      # make the app talk to postgres service by its service name
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/authdb
+      SPRING_DATASOURCE_USERNAME: authuser
+      SPRING_DATASOURCE_PASSWORD: authpass
+      # example jwt secret override (change for production)
+      jwt.secret: ReplaceThisWithAStrongSecretKeyAtLeast32Bytes
+      jwt.access-expiration-seconds: 3600
+
 volumes:
   pgdata:

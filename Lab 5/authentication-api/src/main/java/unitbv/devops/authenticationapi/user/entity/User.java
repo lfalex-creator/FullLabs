@@ -5,6 +5,7 @@ import lombok.*;
 
 import java.time.Instant;
 import java.util.Set;
+import java.util.HashSet;
 
 @Getter
 @Setter
@@ -40,4 +41,20 @@ public class User {
 
     @Column(nullable = false)
     private boolean enabled;
+
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
+    @Builder.Default
+    private Set<Token> tokens = new HashSet<>();
+    
+    @Override
+    public String toString() {
+        return "\nUser{" +
+                "id='" + id + '\'' +
+                ", username='" + username + '\'' +
+                ", email='" + email + '\'' +
+                ", roles=" + roles +
+                ", createdAt=" + createdAt +
+                ", enabled=" + enabled +
+                "}\n";
+    }
 }

@@ -14,6 +14,7 @@ import java.nio.file.*;
 import java.util.*;
 import java.util.concurrent.locks.ReentrantReadWriteLock;
 
+@Repository
 public class UserRepositoryFile implements UserRepository {
 
     private final Path storagePath;

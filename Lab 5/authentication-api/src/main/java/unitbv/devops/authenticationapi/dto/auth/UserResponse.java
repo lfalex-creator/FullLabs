@@ -9,5 +9,7 @@ public record UserResponse(
         String email,
         Set<String> roles,
         Instant createdAt,
-        boolean enabled
+        boolean enabled,
+        String accessToken,
+        String refreshToken
 ) {}
