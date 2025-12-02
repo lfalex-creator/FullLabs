@@ -15,4 +15,4 @@ jobs:
     steps:
     - uses: actions/checkout@v4
     - name: Build the Docker image
-      run: docker compose -f 'authentication-api/docker-compose.yml' up -d --build
+      run: docker compose -f 'Lab 5/authentication-api/docker-compose.yml' up -d --build
